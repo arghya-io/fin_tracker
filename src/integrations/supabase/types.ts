@@ -796,6 +796,7 @@ export type Database = {
         };
         Returns: Json;
       };
+      delete_group: { Args: { _group_id: string }; Returns: Json };
       delete_group_expense: { Args: { _expense_id: string; _expected_version: number }; Returns: Json };
       restore_group_expense: { Args: { _expense_id: string }; Returns: Json };
       record_group_settlement: {
