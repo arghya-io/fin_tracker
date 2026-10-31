@@ -75,7 +75,7 @@ export default function SplitGroupDetail() {
   const closeModal = () => { setShowAddExpense(false); setEditing(null); };
 
   return (
-    <div className="space-y-4 animate-fade-in">
+    <div className="space-y-4 animate-fade-in min-w-0 max-w-full">
       <div className="flex items-center gap-2">
         <Button size="icon" variant="ghost" onClick={() => navigate("/split")}><ArrowLeft className="h-4 w-4" /></Button>
         <h1 className="font-heading font-bold text-2xl flex-1 truncate">{typeInfo?.emoji} {group.name}</h1>
@@ -135,14 +135,14 @@ export default function SplitGroupDetail() {
               const rows = splits.filter((s) => s.expense_id === e.id);
               const open = expanded === e.id;
               return (
-                <div key={e.id} className="glass-card p-4" data-testid="expense-row">
+                <div key={e.id} className="glass-card p-4 min-w-0 overflow-hidden" data-testid="expense-row">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2"><span>{cat?.emoji ?? "📝"}</span><span className="font-semibold truncate">{e.description}</span>{e.visibility === "participants" && <Badge variant="outline" className="text-[10px] px-1.5 py-0 gap-1 shrink-0"><Lock className="h-3 w-3" /> PERSONAL</Badge>}</div>
+                      <div className="flex items-center gap-2 min-w-0"><span className="shrink-0">{cat?.emoji ?? "📝"}</span><span className="font-semibold truncate min-w-0">{e.description}</span>{e.visibility === "participants" && <Badge variant="outline" className="text-[10px] px-1.5 py-0 gap-1 shrink-0"><Lock className="h-3 w-3" /> PERSONAL</Badge>}</div>
                       <p className="text-xs text-muted-foreground mt-1">
                         Paid by {memberName(e.paid_by)} · {format(parseISO(e.expense_date), "MMM dd, yyyy")} · {DIVISION_MODE_LABEL[e.division_mode] ?? e.division_mode}
                       </p>
-                      {e.notes && <p className="text-xs text-muted-foreground mt-1">{e.notes}</p>}
+                      {e.notes && <p className="text-xs text-muted-foreground mt-1 break-words">{e.notes}</p>}
                     </div>
                     <div className="text-right shrink-0"><p className="font-bold">{amt(Number(e.amount), undefined, "w-16")}</p></div>
                   </div>
