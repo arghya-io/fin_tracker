@@ -202,7 +202,7 @@ export function useGroups() {
 
   const deleteGroup = useMutation({
     mutationFn: async (groupId: string) => {
-      const { error } = await supabase.from("groups").delete().eq("id", groupId);
+      const { error } = await supabase.rpc("delete_group", { _group_id: groupId });
       if (error) throw error;
     },
     onSuccess: () => {
