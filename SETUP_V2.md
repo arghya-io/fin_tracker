@@ -1,6 +1,6 @@
 # FinTrack v2 — Setup Guide
 
-This covers everything you need to deploy in your **own** Supabase project
+This  covers everything you need to deploy in your **own** Supabase project
 to activate: Smart Import (CSV/PDF/Image), permanent account deletion,
 password-gated data wipe, the Friends redesign, Friend Requests, Chat, and
 the CDN-based Avatar system. Nothing here touches your live app until you
